@@ -304,7 +304,7 @@ static OPTLYJSONKeyMapper* globalKeyMapper = nil;
         }
 
         //check for Optional properties
-        if (isNull(jsonValue)) {
+        if (isNull2(jsonValue)) {
             //skip this property, continue with next property
             if (property.isOptional || !validation) continue;
 
@@ -362,7 +362,7 @@ static OPTLYJSONKeyMapper* globalKeyMapper = nil;
             }
 
             // 0.5) handle nils
-            if (isNull(jsonValue)) {
+            if (isNull2(jsonValue)) {
                 if ([self valueForKey:property.name] != nil) {
                     [self setValue:nil forKey: property.name];
                 }
@@ -430,7 +430,7 @@ static OPTLYJSONKeyMapper* globalKeyMapper = nil;
 
                 // 3.3) handle values to transform
                 if (
-                    (![jsonValue isKindOfClass:property.type] && !isNull(jsonValue))
+                    (![jsonValue isKindOfClass:property.type] && !isNull2(jsonValue))
                     ||
                     //the property is mutable
                     property.isMutable
@@ -962,7 +962,7 @@ static OPTLYJSONKeyMapper* globalKeyMapper = nil;
 
         //export nil when they are not optional values as JSON null, so that the structure of the exported data
         //is still valid if it's to be imported as a model again
-        if (isNull(value)) {
+        if (isNull2(value)) {
 
             if (value == nil)
             {
@@ -1092,7 +1092,7 @@ static OPTLYJSONKeyMapper* globalKeyMapper = nil;
 +(NSMutableArray*)arrayOfModelsFromDictionaries:(NSArray*)array error:(NSError**)err
 {
     //bail early
-    if (isNull(array)) return nil;
+    if (isNull2(array)) return nil;
 
     //parse dictionaries to objects
     NSMutableArray* list = [NSMutableArray arrayWithCapacity: [array count]];
@@ -1177,7 +1177,7 @@ static OPTLYJSONKeyMapper* globalKeyMapper = nil;
 +(NSMutableArray*)arrayOfDictionariesFromModels:(NSArray*)array
 {
     //bail early
-    if (isNull(array)) return nil;
+    if (isNull2(array)) return nil;
 
     //convert to dictionaries
     NSMutableArray* list = [NSMutableArray arrayWithCapacity: [array count]];
@@ -1196,7 +1196,7 @@ static OPTLYJSONKeyMapper* globalKeyMapper = nil;
 +(NSMutableArray*)arrayOfDictionariesFromModels:(NSArray*)array propertyNamesToExport:(NSArray*)propertyNamesToExport;
 {
     //bail early
-    if (isNull(array)) return nil;
+    if (isNull2(array)) return nil;
 
     //convert to dictionaries
     NSMutableArray* list = [NSMutableArray arrayWithCapacity: [array count]];
@@ -1214,7 +1214,7 @@ static OPTLYJSONKeyMapper* globalKeyMapper = nil;
 +(NSMutableDictionary *)dictionaryOfDictionariesFromModels:(NSDictionary *)dictionary
 {
     //bail early
-    if (isNull(dictionary)) return nil;
+    if (isNull2(dictionary)) return nil;
 
     NSMutableDictionary *output = [NSMutableDictionary dictionaryWithCapacity:dictionary.count];
 
