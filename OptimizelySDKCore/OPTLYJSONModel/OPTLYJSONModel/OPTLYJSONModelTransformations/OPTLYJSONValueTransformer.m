@@ -22,7 +22,7 @@
 #import "OPTLYJSONValueTransformer.h"
 
 #pragma mark - functions
-extern BOOL isNull(id value)
+extern BOOL isNull2(id value)
 {
     if (!value) return YES;
     if ([value isKindOfClass:[NSNull class]]) return YES;
@@ -124,7 +124,7 @@ extern BOOL isNull(id value)
 #pragma mark - BOOL <-> number/string
 -(NSNumber*)BOOLFromNSNumber:(NSNumber*)number
 {
-    if (isNull(number)) return [NSNumber numberWithBool:NO];
+    if (isNull2(number)) return [NSNumber numberWithBool:NO];
     return [NSNumber numberWithBool: number.intValue==0?NO:YES];
 }
 
