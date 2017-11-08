@@ -28,7 +28,7 @@
  * Boolean function to check for null values. Handy when you need to both check
  * for nil and [NSNUll null]
  */
-extern BOOL isNull(id value);
+extern BOOL isNull2(id value);
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
