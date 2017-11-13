@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target   = "8.0"
   s.tvos.deployment_target  = "9.0"
   s.source                  = {
-    :git => "https://github.com/optimizely/objective-c-sdk.git",
+    :git => "https://github.com/reallabs/objective-c-sdk.git",
     :tag => "core-"+s.version.to_s
   }
   s.source_files            = "OptimizelySDKCore/OptimizelySDKCore/*.{h,m}",  "OptimizelySDKCore/Frameworks/**/*.{c,h,m}"
